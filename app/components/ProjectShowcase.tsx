@@ -13,9 +13,16 @@ export default function ProjectShowcase({
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selected, setSelected] = useState<Project | null>(null);
 
+  // 3-column split (md+)
   const col1 = projects.filter((_, i) => i % 3 === 0);
   const col2 = projects.filter((_, i) => i % 3 === 1);
   const col3 = projects.filter((_, i) => i % 3 === 2);
+
+  // 2-column split (sm)
+  const col2a = projects.filter((_, i) => i % 2 === 0);
+  const col2b = projects.filter((_, i) => i % 2 === 1);
+
+  const colProps = { hoveredId, setHoveredId, setSelected };
 
   return (
     <>
@@ -23,24 +30,19 @@ export default function ProjectShowcase({
         Projects
       </h2>
       <div className="flex flex-col md:flex-row items-center justify-start gap-10 mx-auto w-fit">
-        {" "}
-        <div className="flex gap-3 w-fit shrink-0">
-          <ProjectColumn
-            data={col1}
-            offset=""
-            {...{ hoveredId, setHoveredId, setSelected }}
-          />
-          <ProjectColumn
-            data={col2}
-            offset="mt-16"
-            {...{ hoveredId, setHoveredId, setSelected }}
-          />
-          <ProjectColumn
-            data={col3}
-            offset="mt-8"
-            {...{ hoveredId, setHoveredId, setSelected }}
-          />
+        {/* 2-column layout — visible on small screens only */}
+        <div className="flex gap-3 w-fit shrink-0 md:hidden">
+          <ProjectColumn data={col2a} offset="" {...colProps} />
+          <ProjectColumn data={col2b} offset="mt-16" {...colProps} />
         </div>
+
+        {/* 3-column layout — visible on md+ only */}
+        <div className="hidden md:flex gap-3 w-fit shrink-0">
+          <ProjectColumn data={col1} offset="" {...colProps} />
+          <ProjectColumn data={col2} offset="mt-16" {...colProps} />
+          <ProjectColumn data={col3} offset="mt-8" {...colProps} />
+        </div>
+
         <div className="flex flex-col gap-5 w-fit shrink-0">
           {projects.map((p) => (
             <ProjectRow
