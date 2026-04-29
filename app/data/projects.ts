@@ -28,6 +28,15 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "3",
+    title: "Minesweeper Game",
+    tech: "Angular 21",
+    description:
+      "A single-player Minesweeper game where the goal is to uncover all safe cells without detonating any mines.",
+    github: null,
+    live: "https://minesweeper-eguyot.vercel.app",
+  },
+  {
+    id: "4",
     title: "Werewolf Game",
     tech: ".NET + React.js",
     description:
