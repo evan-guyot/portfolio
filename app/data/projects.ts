@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
     description:
       "Full-stack StackOverflow-like platform built with Domain-Driven Design (DDD). Backend powered by .NET REST APIs with MongoDB, and a React 19 + Vite 8 frontend using TypeScript. Includes authentication, questions, answers, voting system and tagging.",
     github: null,
-    live: "https://talkchat.eguyot.dev",
+    live: "https://talkcare.eguyot.dev",
   },
   {
     id: "2",
