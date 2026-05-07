@@ -10,38 +10,29 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     id: "1",
-    title: "JS Chatting application",
-    tech: "Vite + Express.js",
+    title: "TalkCare - Q&A Platform",
+    tech: "Vite 8 + React 19 + .NET 10 + MongoDB",
     description:
-      "Real-time chat application built with TypeScript on both ends. Uses WebSockets via Express.js for instant message delivery, with a Vite-powered frontend for fast development and builds.",
-    github: "https://github.com/evan-guyot/express-chats",
-    live: null,
+      "Full-stack StackOverflow-like platform built with Domain-Driven Design (DDD). Backend powered by .NET REST APIs with MongoDB, and a React 19 + Vite 8 frontend using TypeScript. Includes authentication, questions, answers, voting system and tagging.",
+    github: null,
+    live: "https://talkchat.eguyot.dev",
   },
   {
     id: "2",
-    title: ".NET Chatting application",
-    tech: ".NET + React.js",
+    title: "Minesweeper Game",
+    tech: "Angular 21 + .NET 10 (MVC + REST APIs)",
     description:
-      "Full-stack chat app powered by ASP.NET Core on the backend and React on the frontend. Leverages SignalR for real-time communication and a clean component-based UI.",
-    github: "https://github.com/evan-guyot/ChatOn",
-    live: null,
+      "Modern Minesweeper game built with Angular 21 and a .NET 10 backend using MVC architecture with layered services. Supports both offline mode and online multiplayer mode with a global leaderboard and score tracking.",
+    github: null,
+    live: "https://minesweeper.eguyot.dev",
   },
   {
     id: "3",
-    title: "Minesweeper Game",
-    tech: "Angular 21",
+    title: "Real-time Chat App",
+    tech: "Vite + Express.js + WebSockets",
     description:
-      "A single-player Minesweeper game where the goal is to uncover all safe cells without detonating any mines.",
-    github: null,
-    live: "https://minesweeper-eguyot.vercel.app",
-  },
-  {
-    id: "4",
-    title: "Werewolf Game",
-    tech: ".NET + React.js",
-    description:
-      "Online multiplayer Werewolf game supporting both human players and AI-controlled bots. Handles game state, role assignment, and turn-based logic through a .NET backend with a React interface.",
-    github: null,
+      "Real-time chat application built with TypeScript on both frontend and backend. Uses Express.js with WebSockets for instant messaging and a Vite-powered React frontend for fast and responsive UI.",
+    github: "https://github.com/evan-guyot/express-chats",
     live: null,
   },
 ];
