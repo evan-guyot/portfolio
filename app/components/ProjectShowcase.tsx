@@ -27,7 +27,7 @@ export default function ProjectShowcase({
 
   return (
     <>
-      <h2 className="text-center mb-8 text-2xl text-neutral-300 md:text-3xl font-semibold tracking-tight">
+      <h2 className="text-center mb-8 text-2xl text-text-secondary md:text-3xl font-semibold tracking-tight">
         {dict.sections.projects}
       </h2>
 
@@ -129,14 +129,14 @@ function ProjectCard({
       onClick={onClick}
       className={cn(
         "w-37.5 h-40 rounded-xl cursor-pointer p-4 flex flex-col justify-between",
-        "bg-neutral-900/50 border border-neutral-800 backdrop-blur transition-all duration-300",
-        "hover:border-neutral-600 hover:scale-[1.03]",
+        "bg-surface/50 border border-border backdrop-blur duration-300",
+        "hover:border-border-subtle hover:scale-[1.03]",
         isDimmed && "opacity-60",
       )}
     >
       <div>
         <h3 className="text-sm font-semibold">{t.title}</h3>
-        <p className="text-[11px] text-neutral-400 mt-1">{project.tech}</p>
+        <p className="text-[11px] text-text-muted mt-1">{project.tech}</p>
       </div>
     </div>
   );
@@ -164,22 +164,22 @@ function ProjectRow({
       onMouseLeave={() => onHover(null)}
       onClick={onClick}
       className={cn(
-        "cursor-pointer transition w-fit",
+        "cursor-pointer w-fit",
         !isActive && hoveredId !== null && "opacity-50",
       )}
     >
       <div className="flex items-center gap-3">
         <span
           className={cn(
-            "w-3 h-3 rounded bg-white/30 transition-all",
-            isActive && "bg-white w-4",
+            "w-3 h-3 rounded bg-neutral-400 dark:bg-white/30 duration-300",
+            isActive && "bg-neutral-700 dark:bg-white w-4",
           )}
         />
 
         <span className="font-semibold">{t.title}</span>
       </div>
 
-      <p className="text-xs text-neutral-400 ml-6 mt-1 uppercase tracking-widest">
+      <p className="text-xs text-text-muted ml-6 mt-1 uppercase tracking-widest">
         {project.tech}
       </p>
     </div>

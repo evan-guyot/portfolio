@@ -4,7 +4,7 @@ import { LANGUAGES } from "../data/languages";
 export default function LanguagesSection() {
   return (
     <section className="max-w-5xl mx-auto mt-24">
-      <h2 className="text-center mb-8 text-2xl md:text-3xl font-semibold text-neutral-300">
+      <h2 className="text-center mb-8 text-2xl md:text-3xl font-semibold text-text-secondary">
         Languages & Frameworks
       </h2>
 
@@ -12,10 +12,10 @@ export default function LanguagesSection() {
         {LANGUAGES.map((lang) => (
           <div
             key={lang.title}
-            className="break-inside-avoid rounded-2xl border border-neutral-800 bg-neutral-900/40 backdrop-blur p-6 transition hover:bg-neutral-900/70"
+            className="break-inside-avoid rounded-2xl border border-border bg-surface/70 backdrop-blur p-6 transition hover:bg-surface/70"
           >
             <div className="flex items-center gap-2 mb-5">
-              <h3 className="text-lg font-semibold text-neutral-100">
+              <h3 className="text-lg font-semibold text-text-primary">
                 {lang.title}
               </h3>
 
@@ -26,18 +26,18 @@ export default function LanguagesSection() {
               {lang.skills.map((skill) => (
                 <div key={skill.name}>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="px-3 py-1 rounded-full text-xs tracking-wide uppercase bg-neutral-800 text-neutral-300 border border-neutral-700">
+                    <span className="px-3 py-1 rounded-full text-xs tracking-wide uppercase bg-elevated text-text-secondary border border-border">
                       {skill.name}
                     </span>
 
-                    <span className="text-xs text-neutral-400">
+                    <span className="text-xs text-text-muted">
                       {skill.level}/5
                     </span>
                   </div>
 
-                  <div className="w-full h-2 rounded-full bg-neutral-800 overflow-hidden">
+                  <div className="w-full h-2 rounded-full bg-elevated overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-neutral-300 transition-all duration-500"
+                      className="h-full rounded-full bg-neutral-700 dark:bg-neutral-300 transition-all duration-500"
                       style={{
                         width: `${(skill.level / 5) * 100}%`,
                       }}

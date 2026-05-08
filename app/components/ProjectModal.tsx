@@ -41,7 +41,7 @@ export default function ProjectModal({
       <div
         onClick={(e) => e.stopPropagation()}
         className={cn(
-          "bg-neutral-900 border border-neutral-800 rounded-2xl p-8 max-w-lg w-full mx-4",
+          "bg-elevated border border-border rounded-2xl p-8 max-w-lg w-full mx-4",
           "transform transition-all duration-200 ease-out",
           isOpen
             ? "opacity-100 scale-100 translate-y-0"
@@ -49,9 +49,9 @@ export default function ProjectModal({
         )}
       >
         <h2 className="text-2xl font-semibold">{t.title}</h2>
-        <p className="text-sm text-neutral-400 mb-4">{project.tech}</p>
+        <p className="text-sm text-text-muted mb-4">{project.tech}</p>
 
-        <p className="text-neutral-300 mb-6">{t.description}</p>
+        <p className="text-text-secondary mb-6">{t.description}</p>
 
         <div className="flex gap-4">
           {project.github === null && project.live === null ? (
@@ -62,7 +62,7 @@ export default function ProjectModal({
                 <Link
                   href={project.github}
                   target="_blank"
-                  className="text-sky-300 hover:underline"
+                  className="text-sky-600 dark:text-sky-300 hover:underline"
                 >
                   {dict.common.github}
                 </Link>
@@ -72,7 +72,7 @@ export default function ProjectModal({
                 <Link
                   href={project.live}
                   target="_blank"
-                  className="text-sky-300 hover:underline"
+                  className="text-sky-600 dark:text-sky-300 hover:underline"
                 >
                   {dict.common.live}
                 </Link>

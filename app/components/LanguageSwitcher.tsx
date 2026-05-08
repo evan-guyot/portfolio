@@ -17,11 +17,9 @@ export default function LanguageSwitcher() {
     <div className="fixed top-6 right-6 z-50">
       <Link
         href={newPath}
-        className={cn(
-          "px-4 py-2 rounded-xl border border-neutral-800",
-          "bg-neutral-900/70 backdrop-blur text-sm",
-          "hover:bg-neutral-800 transition",
-        )}
+        className={
+          "px-4 py-2 rounded-xl border border-border bg-surface/70 backdrop-blur text-sm hover:bg-elevated"
+        }
       >
         {currentLang === "en" ? "FR" : "EN"}
       </Link>
