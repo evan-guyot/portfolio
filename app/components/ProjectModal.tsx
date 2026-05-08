@@ -4,12 +4,15 @@ import { useEffect, useState } from "react";
 import { Project } from "../data/projects";
 import cn from "../lib/cn";
 import Link from "next/link";
+import { LangDictionary } from "../dictionaries/types";
 
 export default function ProjectModal({
   project,
+  dict,
   onClose,
 }: {
   project: Project;
+  dict: LangDictionary;
   onClose: () => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +26,8 @@ export default function ProjectModal({
     setIsOpen(false);
     setTimeout(onClose, 200);
   };
+
+  const t = dict.projects[project.id];
 
   return (
     <div
@@ -43,14 +48,14 @@ export default function ProjectModal({
             : "opacity-0 scale-95 translate-y-4",
         )}
       >
-        <h2 className="text-2xl font-semibold">{project.title}</h2>
+        <h2 className="text-2xl font-semibold">{t.title}</h2>
         <p className="text-sm text-neutral-400 mb-4">{project.tech}</p>
 
-        <p className="text-neutral-300 mb-6">{project.description}</p>
+        <p className="text-neutral-300 mb-6">{t.description}</p>
 
         <div className="flex gap-4">
           {project.github === null && project.live === null ? (
-            <>coming soon..</>
+            <>{dict.common.comingSoon}</>
           ) : (
             <>
               {project.github !== null && (
@@ -59,16 +64,17 @@ export default function ProjectModal({
                   target="_blank"
                   className="text-sky-300 hover:underline"
                 >
-                  GitHub
+                  {dict.common.github}
                 </Link>
               )}
+
               {project.live !== null && (
                 <Link
                   href={project.live}
                   target="_blank"
                   className="text-sky-300 hover:underline"
                 >
-                  Live
+                  {dict.common.live}
                 </Link>
               )}
             </>

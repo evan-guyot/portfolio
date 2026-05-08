@@ -1,41 +1,5 @@
 import { FaStar } from "react-icons/fa";
-
-const languages = [
-  {
-    title: "C#",
-    favorite: true,
-    skills: [
-      { name: ".NET Core", level: 4.5 },
-      { name: ".NET Framework", level: 4 },
-    ],
-  },
-  {
-    title: "JavaScript & TypeScript",
-    skills: [
-      { name: "React", level: 4 },
-      { name: "Angular", level: 4 },
-      { name: "Next.js", level: 3.5 },
-      { name: "Express.js", level: 3 },
-      { name: "Electron", level: 2 },
-    ],
-  },
-  {
-    title: "SQL",
-    skills: [
-      { name: "PostgreSQL", level: 4 },
-      { name: "SQL Server", level: 4 },
-      { name: "Oracle Database", level: 4 },
-    ],
-  },
-  {
-    title: "React Native",
-    skills: [{ name: "Expo", level: 3.5 }],
-  },
-  {
-    title: "Java",
-    skills: [{ name: "Spring Boot", level: 3.5 }],
-  },
-];
+import { LANGUAGES } from "../data/languages";
 
 export default function LanguagesSection() {
   return (
@@ -45,7 +9,7 @@ export default function LanguagesSection() {
       </h2>
 
       <div className="columns-1 md:columns-2 gap-4 space-y-4">
-        {languages.map((lang) => (
+        {LANGUAGES.map((lang) => (
           <div
             key={lang.title}
             className="break-inside-avoid rounded-2xl border border-neutral-800 bg-neutral-900/40 backdrop-blur p-6 transition hover:bg-neutral-900/70"
