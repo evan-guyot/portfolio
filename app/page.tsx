@@ -2,6 +2,7 @@ import { FaLinkedinIn, FaGithub, FaLaptopCode } from "react-icons/fa";
 import ProjectShowcase from "./components/ProjectShowcase";
 import CoursesTable from "./components/CoursesTable";
 import Link from "next/link";
+import LanguagesSection from "./components/LanguageSection";
 
 export default function Home() {
   return (
@@ -42,6 +43,8 @@ export default function Home() {
       <ProjectShowcase />
 
       <CoursesTable />
+
+      <LanguagesSection />
     </main>
   );
 }
