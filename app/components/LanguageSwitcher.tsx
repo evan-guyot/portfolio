@@ -18,7 +18,7 @@ export default function LanguageSwitcher() {
       <Link
         href={newPath}
         className={
-          "px-4 py-2 rounded-xl border border-border bg-surface/70 backdrop-blur text-sm hover:bg-elevated"
+          "px-4 py-2 w-4 h-4 rounded-xl border border-border bg-surface/70 backdrop-blur text-sm hover:bg-elevated"
         }
       >
         {currentLang === "en" ? "FR" : "EN"}
