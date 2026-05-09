@@ -55,6 +55,12 @@ const en = {
       description:
         "Real-time chat application built with Express.js, WebSockets and a React frontend powered by Vite.",
     },
+
+    "4": {
+      title: "Marketplace en ligne",
+      description:
+        "Application web complète de marketplace développée avec Next.js et connecté à une base de données PostgreSQL.",
+    },
   },
 
   languages: {

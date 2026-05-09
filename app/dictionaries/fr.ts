@@ -55,6 +55,12 @@ const fr = {
       description:
         "Application de tchat en temps réel (grâce à des WebSockets) construite avec Express.js en backend et un frontend React/Vite.",
     },
+
+    "4": {
+      title: "Online Marketplace",
+      description:
+        "Full-stack online marketplace application built with Next.js and connected to a PostgreSQL database.",
+    },
   },
 
   languages: {

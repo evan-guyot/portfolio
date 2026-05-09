@@ -35,4 +35,13 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/evan-guyot/express-chats",
     live: null,
   },
+  {
+    id: "4",
+    title: "Online Marketplace",
+    tech: "Next.js 14 + PostgreSQL",
+    description:
+      "Full-stack online marketplace application built with Next.js and connected to a PostgreSQL database.",
+    github: "https://github.com/evan-guyot/nextjs-market",
+    live: "https://market-eguyot.vercel.app",
+  },
 ];
