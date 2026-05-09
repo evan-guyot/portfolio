@@ -18,9 +18,9 @@ export const LANGUAGES = [
     skills: [
       { name: "React", level: 4 },
       { name: "Angular", level: 4 },
+      { name: "Vite", level: 3.5 },
       { name: "Next.js", level: 3.5 },
       { name: "Express.js", level: 3 },
-      { name: "Electron", level: 2 },
     ],
   },
   {
@@ -32,11 +32,14 @@ export const LANGUAGES = [
     ],
   },
   {
-    title: "React Native",
-    skills: [{ name: "Expo", level: 3.5 }],
+    title: "NoSQL",
+    skills: [
+      { name: "MongoDB", level: 3.5 },
+      { name: "Firestore", level: 2.5 },
+    ],
   },
   {
-    title: "Java",
-    skills: [{ name: "Spring Boot", level: 3.5 }],
+    title: "React Native",
+    skills: [{ name: "Expo", level: 3.5 }],
   },
 ];
