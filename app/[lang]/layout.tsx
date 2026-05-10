@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
-import { ThemeProvider } from "../providers/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeProvider } from "../providers/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,20 +14,50 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Evan Guyot",
-  description:
-    "Evan Guyot's portfolio showcasing full-stack applications, real-time apps, and modern projects.",
-};
+export function generateStaticParams() {
+  return [{ lang: "fr" }, { lang: "en" }];
+}
 
-export default function RootLayout({
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+
+  const isFrench = lang === "fr";
+
+  return {
+    metadataBase: new URL("https://eguyot.dev"),
+
+    title: "Evan Guyot",
+
+    description: isFrench
+      ? "Site web d'Evan Guyot présentant les projets réalisés, les formations suivies et les technologies maîtrisées"
+      : "Evan Guyot's website showcasing projects, completed courses, and mastered technologies.",
+
+    alternates: {
+      canonical: `/${lang}`,
+      languages: {
+        fr: "/fr",
+        en: "/en",
+      },
+    },
+  };
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang } = await params;
+
   return (
     <html
-      lang="en"
+      lang={lang}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
@@ -42,7 +72,9 @@ export default function RootLayout({
             `,
           }}
         />
+
         <ThemeProvider>{children}</ThemeProvider>
+
         <Analytics />
       </body>
     </html>
