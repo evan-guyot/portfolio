@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Course, COURSES } from "../data/courses";
 import { FaGithub } from "react-icons/fa";
 import { LangDictionary } from "../dictionaries/types";
+import { FiExternalLink } from "react-icons/fi";
 
 export default function CoursesTable({
   courses = COURSES,
@@ -65,9 +66,12 @@ export default function CoursesTable({
                     <Link
                       href={c.link}
                       target="_blank"
-                      className="text-sky-600 dark:text-sky-300 hover:underline hover:text-sky-500 dark:hover:text-sky-400"
+                      className="text-sky-600 dark:text-sky-300"
                     >
-                      {dict.common.visit}
+                      <FiExternalLink
+                        size={16}
+                        className="text-center hover:text-sky-500 dark:hover:text-sky-400"
+                      />
                     </Link>
                   </td>
                 </tr>

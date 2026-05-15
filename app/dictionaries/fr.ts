@@ -11,7 +11,6 @@ const fr = {
   },
 
   common: {
-    visit: "visiter",
     noLink: "aucun lien",
     github: "GitHub",
     live: "Démo",

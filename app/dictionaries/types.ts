@@ -11,7 +11,6 @@ export type LangDictionary = {
   };
 
   common: {
-    visit: string;
     noLink: string;
     github: string;
     live: string;
