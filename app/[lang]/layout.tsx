@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { Analytics } from "@vercel/analytics/next";
@@ -61,18 +62,23 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const t = localStorage.getItem('theme');
-                if (t === 'dark') document.documentElement.classList.add('dark');
-              } catch {}
-            `,
-          }}
-        />
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+          try {
+            const theme = localStorage.getItem('theme');
 
+            if (theme === 'dark') {
+              document.documentElement.classList.add('dark');
+            } else {
+              document.documentElement.classList.remove('dark');
+            }
+          } catch {}
+        `}
+        </Script>
+      </head>
+
+      <body className="min-h-full flex flex-col">
         <ThemeProvider>{children}</ThemeProvider>
 
         <Analytics />

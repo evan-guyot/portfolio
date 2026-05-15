@@ -129,7 +129,7 @@ function ProjectCard({
       onClick={onClick}
       className={cn(
         "w-37.5 h-40 rounded-xl cursor-pointer p-4 flex flex-col justify-between",
-        "bg-surface/50 border border-border backdrop-blur duration-300",
+        "bg-surface/50 border border-border backdrop-blur transition-transform duration-300",
         "hover:border-border-subtle hover:scale-[1.03]",
         isDimmed && "opacity-60",
       )}
