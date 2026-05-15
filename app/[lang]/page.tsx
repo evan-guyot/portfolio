@@ -17,7 +17,7 @@ export default async function Home({
   const dict = dictionaries[lang];
 
   return (
-    <main className="min-h-screen bg-base text-text-primary px-6 py-16 font-mono">
+    <main className="min-h-screen bg-base text-text-primary px-6 py-20 font-mono">
       <ThemeToggle /> <LanguageSwitcher />
       <section className="max-w-3xl mx-auto text-center space-y-6 mb-20">
         <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">

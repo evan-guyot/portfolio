@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
-import { ThemeProvider } from "../providers/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeProvider } from "../providers/ThemeProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
@@ -15,34 +16,72 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Evan Guyot",
-  description: "Evan Guyot's website",
-};
+export function generateStaticParams() {
+  return [{ lang: "fr" }, { lang: "en" }];
+}
 
-export default function RootLayout({
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+
+  const isFrench = lang === "fr";
+
+  return {
+    metadataBase: new URL("https://eguyot.dev"),
+
+    title: "Evan Guyot",
+
+    description: isFrench
+      ? "Site web d'Evan Guyot présentant les projets réalisés, les formations suivies et les technologies maîtrisées"
+      : "Evan Guyot's website showcasing projects, completed courses, and mastered technologies.",
+
+    alternates: {
+      canonical: `/${lang}`,
+      languages: {
+        fr: "/fr",
+        en: "/en",
+      },
+    },
+  };
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang } = await params;
+
   return (
     <html
-      lang="en"
+      lang={lang}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+          try {
+            const theme = localStorage.getItem('theme');
+
+            if (theme === 'dark') {
+              document.documentElement.classList.add('dark');
+            } else {
+              document.documentElement.classList.remove('dark');
+            }
+          } catch {}
+        `}
+        </Script>
+      </head>
+
       <body className="min-h-full flex flex-col">
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const t = localStorage.getItem('theme');
-                if (t === 'dark') document.documentElement.classList.add('dark');
-              } catch {}
-            `,
-          }}
-        />
         <ThemeProvider>{children}</ThemeProvider>
+
         <Analytics />
         <SpeedInsights />
       </body>
